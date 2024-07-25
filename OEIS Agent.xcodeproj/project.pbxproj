@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F76B283B2C521BAA00E4992A /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B283A2C521BAA00E4992A /* Sequence.swift */; };
+		F76B283E2C521D4100E4992A /* OEISClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B283D2C521D4100E4992A /* OEISClient.swift */; };
 		F7A26FD52C520DC800AB220A /* OEIS_AgentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A26FD42C520DC800AB220A /* OEIS_AgentApp.swift */; };
 		F7A26FD72C520DC800AB220A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A26FD62C520DC800AB220A /* ContentView.swift */; };
 		F7A26FD92C520DC800AB220A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A26FD82C520DC800AB220A /* Item.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F76B283A2C521BAA00E4992A /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		F76B283D2C521D4100E4992A /* OEISClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEISClient.swift; sourceTree = "<group>"; };
 		F7A26FD12C520DC800AB220A /* OEIS Agent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OEIS Agent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A26FD42C520DC800AB220A /* OEIS_AgentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEIS_AgentApp.swift; sourceTree = "<group>"; };
 		F7A26FD62C520DC800AB220A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +41,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F76B28382C5217B800E4992A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7A26FD82C520DC800AB220A /* Item.swift */,
+				F76B283A2C521BAA00E4992A /* Sequence.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F76B28392C5217C800E4992A /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F7A26FD62C520DC800AB220A /* ContentView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		F76B283C2C521D2400E4992A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F76B283D2C521D4100E4992A /* OEISClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		F7A26FC82C520DC700AB220A = {
 			isa = PBXGroup;
 			children = (
@@ -57,8 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				F7A26FD42C520DC800AB220A /* OEIS_AgentApp.swift */,
-				F7A26FD62C520DC800AB220A /* ContentView.swift */,
-				F7A26FD82C520DC800AB220A /* Item.swift */,
+				F76B28392C5217C800E4992A /* Screen */,
+				F76B283C2C521D2400E4992A /* API */,
+				F76B28382C5217B800E4992A /* Model */,
 				F7A26FDA2C520DC900AB220A /* Assets.xcassets */,
 				F7A26FDC2C520DC900AB220A /* OEIS_Agent.entitlements */,
 				F7A26FDD2C520DC900AB220A /* Preview Content */,
@@ -150,8 +180,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76B283E2C521D4100E4992A /* OEISClient.swift in Sources */,
 				F7A26FD72C520DC800AB220A /* ContentView.swift in Sources */,
 				F7A26FD92C520DC800AB220A /* Item.swift in Sources */,
+				F76B283B2C521BAA00E4992A /* Sequence.swift in Sources */,
 				F7A26FD52C520DC800AB220A /* OEIS_AgentApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

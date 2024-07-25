@@ -6,6 +6,7 @@ struct OEIS_AgentApp: App {
   var sharedModelContainer: ModelContainer = {
     let schema = Schema([
       Item.self,
+      Sequence.self,
     ])
     let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
     

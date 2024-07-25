@@ -4,6 +4,7 @@ import SwiftData
 struct ContentView: View {
   @Environment(\.modelContext) private var modelContext
   @Query private var items: [Item]
+  @State private var query: String = ""
   
   var body: some View {
     NavigationSplitView {
@@ -35,6 +36,7 @@ struct ContentView: View {
     } detail: {
       Text("Select an item")
     }
+    .searchable(text: $query)
   }
   
   private func addItem() {
