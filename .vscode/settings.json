@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["halfmoon", "oeis"],
+  "cSpell.words": ["biomejs", "halfmoon", "oeis"],
   "[html]": {
     "editor.defaultFormatter": "biomejs.biome"
   },

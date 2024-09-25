@@ -1,17 +1,19 @@
 import type { Component } from "solid-js";
 
 import styles from "./App.module.css";
-import logo from "./logo.svg";
+import Header from "./components/header";
+import Logo from "./logo.svg";
 
 import "halfmoon/css/halfmoon.min.css";
-import Header from "./components/header";
 
 const App: Component = () => {
   return (
-    <div class={styles.App}>
+    // <div class={styles.App}>
+    <>
       <Header />
       <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
+        <img src={Logo} class={styles.logo} alt="logo" />
+        {/* <Logo class={styles.logo} /> */}
         <p>
           Edit <code>src/App.jsx</code> and save to reload.
         </p>
@@ -24,7 +26,8 @@ const App: Component = () => {
           Learn Solid, Tailwind CSS and Flowbite
         </a>
       </header>
-    </div>
+    </>
+    // </div>
   );
 };
 
