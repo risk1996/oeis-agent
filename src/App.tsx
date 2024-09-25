@@ -5,6 +5,7 @@ import Header from "./components/header";
 import Logo from "./logo.svg";
 
 import "halfmoon/css/halfmoon.min.css";
+import "solid-devtools";
 
 const App: Component = () => {
   return (
