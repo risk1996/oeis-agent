@@ -3,11 +3,13 @@ import type { Component } from 'solid-js';
 import styles from './App.module.css';
 import logo from './logo.svg';
 
-import 'flowbite';
+import "halfmoon/css/halfmoon.min.css";
+import Header from './components/header';
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
+      <Header />
       <header class={styles.header}>
         <img src={logo} class={styles.logo} alt="logo" />
         <p>
