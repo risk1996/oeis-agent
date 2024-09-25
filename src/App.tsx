@@ -1,10 +1,10 @@
-import type { Component } from 'solid-js';
+import type { Component } from "solid-js";
 
-import styles from './App.module.css';
-import logo from './logo.svg';
+import styles from "./App.module.css";
+import logo from "./logo.svg";
 
 import "halfmoon/css/halfmoon.min.css";
-import Header from './components/header';
+import Header from "./components/header";
 
 const App: Component = () => {
   return (
