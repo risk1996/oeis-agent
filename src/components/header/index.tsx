@@ -1,3 +1,4 @@
+import { TbSearch } from "solid-icons/tb";
 import { type Component, createSignal } from "solid-js";
 
 import Icon from "../../assets/icon.svg";
@@ -27,18 +28,26 @@ const Header: Component<HeaderProps> = () => {
               setQ(getTempQ());
             }}
           >
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search OEIS"
-              aria-label="Search"
-              value={getTempQ()}
-              onInput={(e) => setTempQ(e.currentTarget.value)}
-            />
+            <div class="input-group">
+              <input
+                class="form-control"
+                type="search"
+                placeholder="Search OEIS"
+                aria-label="Search"
+                value={getTempQ()}
+                onInput={(e) => setTempQ(e.currentTarget.value)}
+              />
 
-            <button class="btn btn-primary" type="submit">
-              Search
-            </button>
+              {/* TODO: Tooltip */}
+              <button
+                class="btn btn-primary"
+                type="submit"
+                data-bs-toggle="tooltip"
+                data-bs-title="Collaborate with your team"
+              >
+                <TbSearch />
+              </button>
+            </div>
           </form>
         </div>
       </nav>
