@@ -38,9 +38,15 @@ const SearchResult: Component<SearchResultProps> = () => {
               ) : null}
             </Match>
             <Match when={searchQuery.isSuccess}>
-              <For each={searchQuery.data}>
-                {(entry) => <OEISEntryCard data={entry} />}
-              </For>
+              <div class="row">
+                <For each={searchQuery.data}>
+                  {(entry) => (
+                    <div class="col-12 col-md-6 p-2 d-flex align-items-stretch">
+                      <OEISEntryCard data={entry} />
+                    </div>
+                  )}
+                </For>
+              </div>
             </Match>
           </Switch>
         </Match>
