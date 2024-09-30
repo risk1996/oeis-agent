@@ -7,36 +7,57 @@ import { createSignal } from "solid-js";
 import {
   type InferOutput,
   array,
+  isoTimestamp,
   number,
   object,
   optional,
   parse,
+  pipe,
   string,
+  transform,
 } from "valibot";
+import { parseAuthors } from "../helpers/author";
 
 const OEISEntrySchema = object({
-  author: string(),
-  comment: optional(array(string())),
-  created: string(),
-  data: string(),
-  example: optional(array(string())),
-  formula: optional(array(string())),
-  id: optional(string()),
-  keyword: string(),
+  author: pipe(string(), transform(parseAuthors)),
+  comment: optional(array(string()), []),
+  created: pipe(
+    string(),
+    isoTimestamp(),
+    transform((v) => new Date(v)),
+  ),
+  data: pipe(
+    string(),
+    transform((v) => v.split(",").map(Number)),
+  ),
+  example: optional(array(string()), []),
+  formula: optional(array(string()), []),
+  id: optional(string(), ""),
+  keyword: pipe(
+    string(),
+    transform((v) => v.split(",")),
+  ),
   link: array(string()),
-  maple: optional(array(string())),
-  mathematica: optional(array(string())),
+  maple: optional(array(string()), []),
+  mathematica: optional(array(string()), []),
   name: string(),
   number: number(),
-  offset: string(),
-  program: optional(array(string())),
-  reference: optional(array(string())),
+  offset: pipe(
+    string(),
+    transform((v) => v.split(",").map(Number)),
+  ),
+  program: optional(array(string()), []),
+  reference: optional(array(string()), []),
   references: number(),
   revision: number(),
-  time: string(),
-  xref: optional(array(string())),
+  time: pipe(
+    string(),
+    isoTimestamp(),
+    transform((v) => new Date(v)),
+  ),
+  xref: optional(array(string()), []),
 });
-type OEISEntry = InferOutput<typeof OEISEntrySchema>;
+export type OEISEntry = InferOutput<typeof OEISEntrySchema>;
 
 export async function searchOEIS(q: string): Promise<OEISEntry[]> {
   const params = new URLSearchParams({ q, fmt: "json" });
