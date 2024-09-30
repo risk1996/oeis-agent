@@ -41,7 +41,10 @@ const OEISEntrySchema = object({
   maple: optional(array(string()), []),
   mathematica: optional(array(string()), []),
   name: string(),
-  number: number(),
+  number: pipe(
+    number(),
+    transform((v) => `A${v.toString().padStart(6, "0")}`),
+  ),
   offset: pipe(
     string(),
     transform((v) => v.split(",").map(Number)),
