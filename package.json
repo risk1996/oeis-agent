@@ -9,9 +9,11 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@tanstack/solid-query": "^5.56.2",
     "autoprefixer": "^10.4.20",
     "halfmoon": "^2.0.2",
-    "solid-js": "^1.9.1"
+    "solid-js": "^1.9.1",
+    "valibot": "^0.42.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.2",
