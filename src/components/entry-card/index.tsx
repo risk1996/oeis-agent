@@ -1,6 +1,6 @@
 import { Icon } from "@iconify-icon/solid";
 import clsx from "clsx";
-import { type Component, For, Show } from "solid-js";
+import { type Component, Show } from "solid-js";
 
 import { t } from "../../i18n";
 import intl from "../../i18n/intl";
@@ -11,70 +11,60 @@ export interface EntryCardProps {
   data: Entry;
 }
 
-const EntryCard: Component<EntryCardProps> = (props) => (
-  <div class={clsx("card", props.class)}>
-    <div class="card-body">
-      <div class="d-flex justify-content-between">
-        <div>
-          <h5 class="card-title">{props.data.number}</h5>
-          <p class="card-text">
-            <For each={props.data.author}>
-              {(author) => (
-                <span class="badge bg-secondary me-1">
-                  <i>{author.name}</i>
-                  <Show when={author.date !== null}>
-                    <span>
-                      , <small>{author.date}</small>
-                    </span>
-                  </Show>
-                </span>
-              )}
-            </For>
-          </p>
-        </div>
+const EntryCard: Component<EntryCardProps> = (props) => {
+  const author = () => props.data.author[0];
+  const isManyAuthors = () => props.data.author.length > 1;
 
-        <div>
-          <div
-            class="d-flex align-items-center"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            data-bs-title={t.createdDate()}
-          >
-            <Icon icon="tabler:calendar-plus" class="me-1" />
-            <span>{intl().date.format(props.data.created)}</span>
+  return (
+    <div class={clsx("card", props.class)}>
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5 class="card-title">{props.data.number}</h5>
+            <p class="card-text">
+              <Show when={author()}>{(author) => <i>{author().name}</i>}</Show>
+              <Show when={isManyAuthors()}>
+                {", "}
+                <i>{t.etAl()}</i>
+              </Show>
+            </p>
           </div>
-          <div
-            class="d-flex align-items-center"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            data-bs-title={t.modifiedDate()}
-          >
-            <Icon icon="tabler:calendar-clock" class="me-1" />
-            <span>{intl().date.format(props.data.time)}</span>
+
+          <div>
+            <div
+              class="d-flex align-items-center"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              data-bs-title={t.createdDate()}
+            >
+              <Icon icon="tabler:calendar-plus" class="me-1" />
+              <span>{intl().date.format(props.data.created)}</span>
+            </div>
+            <div
+              class="d-flex align-items-center"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              data-bs-title={t.modifiedDate()}
+            >
+              <Icon icon="tabler:calendar-clock" class="me-1" />
+              <span>{intl().date.format(props.data.time)}</span>
+            </div>
           </div>
         </div>
+        <p class="card-text mt-3">{props.data.name}</p>
       </div>
-      <p class="card-text mt-3">{props.data.name}</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
+      <hr />
+      <div class="card-body">
         <pre class="text-wrap">{props.data.data.join(", ")}</pre>
-      </li>
-      <li class="list-group-item">
-        {/* TODO: Comment */}
-        {/* TODO: Formula */}
-        {/* TODO: Keyword? */}
-        {/* TODO: Offset? */}
-        {/* TODO: Reference */}
-        {/* TODO: XRef */}
-      </li>
-    </ul>
-    <div class="card-body">
-      {/* TODO: Mathematica modal */}
-      {/* TODO: Maple modal */}
-      {/* TODO: Program modal */}
+      </div>
+      <hr />
+      <div class="card-body">
+        {/* TODO: Mathematica modal */}
+        {/* TODO: Maple modal */}
+        {/* TODO: Program modal */}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default EntryCard;

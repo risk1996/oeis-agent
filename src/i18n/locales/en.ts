@@ -8,6 +8,7 @@ const en = {
   recentAdditions: "Recent additions to OEIS",
   loadingData: "Loading data...",
   error: "Error",
+  etAl: "et al.",
   createdDate: "Created date",
   modifiedDate: "Modified date",
 };
