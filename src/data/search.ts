@@ -16,6 +16,7 @@ import {
   string,
   transform,
 } from "valibot";
+
 import { parseAuthors } from "../helpers/author";
 
 const OEISEntrySchema = object({
@@ -62,6 +63,7 @@ const OEISEntrySchema = object({
 });
 export type OEISEntry = InferOutput<typeof OEISEntrySchema>;
 
+// TODO: Pagination
 export async function searchOEIS(q: string): Promise<OEISEntry[]> {
   const params = new URLSearchParams({ q, fmt: "json" });
   const response = await fetch(`https://oeis.org/search?${params}`);

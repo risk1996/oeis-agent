@@ -1,6 +1,5 @@
-import { type Component, For, Show } from "solid-js";
-
 import clsx from "clsx";
+import { type Component, For, Show } from "solid-js";
 
 import type { OEISEntry } from "../../data/search";
 

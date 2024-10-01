@@ -9,6 +9,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@solidjs/router": "^0.14.7",
     "@tanstack/solid-query": "^5.56.2",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",

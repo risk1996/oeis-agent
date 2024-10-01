@@ -1,8 +1,9 @@
+import { Route, Router } from "@solidjs/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
 import type { Component } from "solid-js";
 
 import Header from "./components/header";
-import SearchResult from "./components/search-result";
+import IndexPage from "./pages";
 
 import "halfmoon/css/halfmoon.min.css";
 import "solid-devtools";
@@ -13,7 +14,9 @@ const App: Component = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <SearchResult />
+      <Router>
+        <Route path="/" component={IndexPage} />
+      </Router>
     </QueryClientProvider>
   );
 };
