@@ -7,6 +7,8 @@ const en = {
   searchResultFor: (q: string) => `Search result for "${q}"`,
   loadingData: "Loading data...",
   error: "Error",
+  createdDate: "Created date",
+  updatedDate: "Updated date",
 };
 
 export default en;

@@ -1,7 +1,7 @@
-import { TbSearch } from "solid-icons/tb";
 import { type Component, createSignal } from "solid-js";
 
-import Icon from "../../assets/icon.svg";
+import { Icon } from "@iconify-icon/solid";
+import Logo from "../../assets/icon.svg";
 import { getQ, setQ } from "../../data/search";
 import { t } from "../../i18n";
 
@@ -18,7 +18,7 @@ const Header: Component<HeaderProps> = () => {
       >
         <div class="container-lg">
           <a class="navbar-brand" href="/">
-            <img src={Icon} alt="logo" width={20} height={20} />
+            <img src={Logo} alt="logo" width={20} height={20} />
             <span class="ms-2">{t.title()}</span>
           </a>
 
@@ -46,7 +46,7 @@ const Header: Component<HeaderProps> = () => {
                 data-bs-placement="bottom"
                 data-bs-title={t.search()}
               >
-                <TbSearch />
+                <Icon icon="tabler:search" class="align-middle" width="1rem" />
               </button>
             </div>
           </form>

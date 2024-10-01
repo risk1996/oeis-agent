@@ -4,9 +4,11 @@
     "biomejs",
     "clsx",
     "halfmoon",
+    "iconify",
     "oeis",
     "popperjs",
     "solidjs",
+    "tabler",
     "tanstack",
     "valibot"
   ],
