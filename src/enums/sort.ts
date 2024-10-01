@@ -1,5 +1,5 @@
 enum Sort {
-  Relevance = "",
+  Relevance = "relevance",
   References = "references",
   Number = "number",
   Modified = "modified",

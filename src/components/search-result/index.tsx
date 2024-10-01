@@ -1,7 +1,7 @@
 import { type Component, For, Match, Switch } from "solid-js";
 import { ValiError } from "valibot";
 
-import { createSearchOEISQuery } from "../../data/search";
+import { createSearchQuery } from "../../data/search";
 import { t } from "../../i18n";
 import EntryCard from "../entry-card";
 
@@ -10,7 +10,10 @@ export interface SearchResultProps {
 }
 
 const SearchResult: Component<SearchResultProps> = (props) => {
-  const searchQuery = createSearchOEISQuery(() => props.q, {});
+  const searchQuery = createSearchQuery(
+    () => ({ q: props.q, sort: null, start: null }),
+    {},
+  );
 
   return (
     <Switch>
