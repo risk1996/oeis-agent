@@ -10,10 +10,7 @@ export interface SearchResultProps {
 }
 
 const SearchResult: Component<SearchResultProps> = (props) => {
-  const searchQuery = createSearchQuery(
-    () => ({ q: props.q, sort: null, start: null }),
-    {},
-  );
+  const searchQuery = createSearchQuery(() => ({ q: props.q, sort: null }), {});
 
   return (
     <Switch>

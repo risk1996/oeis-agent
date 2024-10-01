@@ -1,5 +1,6 @@
 import { Route, Router } from "@solidjs/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
+import { SolidQueryDevtools } from "@tanstack/solid-query-devtools";
 import type { Component } from "solid-js";
 
 import Layout from "./components/layout";
@@ -17,6 +18,8 @@ const App: Component = () => {
         <Route path="/search" component={SearchPage} />
         <Route path="*404" component={NotFoundPage} />
       </Router>
+
+      <SolidQueryDevtools />
     </QueryClientProvider>
   );
 };

@@ -13,6 +13,7 @@
     "@solid-primitives/i18n": "^2.1.1",
     "@solidjs/router": "^0.14.7",
     "@tanstack/solid-query": "^5.56.2",
+    "@tanstack/solid-query-devtools": "^5.58.0",
     "autoprefixer": "^10.4.20",
     "bootstrap": "^5.3.3",
     "clsx": "^2.1.1",
