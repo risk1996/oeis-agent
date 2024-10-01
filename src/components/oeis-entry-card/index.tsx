@@ -16,14 +16,7 @@ const OEISEntryCard: Component<OEISEntryCardProps> = (props) => (
     <div class="card-body">
       <div class="d-flex justify-content-between">
         <div>
-          <h5 class="card-title">
-            {props.data.number}
-
-            <Show when={props.data.id !== undefined}>
-              {" - "}
-              {props.data.id}
-            </Show>
-          </h5>
+          <h5 class="card-title">{props.data.number}</h5>
           <p class="card-text">
             <For each={props.data.author}>
               {(author) => (
@@ -54,7 +47,7 @@ const OEISEntryCard: Component<OEISEntryCardProps> = (props) => (
             class="d-flex align-items-center"
             data-bs-toggle="tooltip"
             data-bs-placement="bottom"
-            data-bs-title={t.updatedDate()}
+            data-bs-title={t.modifiedDate()}
           >
             <Icon icon="tabler:calendar-clock" class="me-1" />
             <span>{intl().date.format(props.data.time)}</span>

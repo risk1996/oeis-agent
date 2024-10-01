@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 
-import SearchResult from "../components/search-result";
+import Layout from "../components/layout";
 
-const IndexPage: Component = () => <SearchResult />;
+const IndexPage: Component = () => <Layout>{null}</Layout>;
 
 export default IndexPage;

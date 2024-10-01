@@ -1,17 +1,26 @@
+import { Icon } from "@iconify-icon/solid";
 import { type Component, createSignal } from "solid-js";
 
-import { Icon } from "@iconify-icon/solid";
-import Logo from "../../assets/icon.svg";
-import { getQ, setQ } from "../../data/search";
+import { useNavigate, useSearchParams } from "@solidjs/router";
+import Logo from "../../assets/logo.svg";
 import { t } from "../../i18n";
+import type { SearchPageParams } from "../../pages/search";
 
 export type HeaderProps = Record<never, never>;
 
 const Header: Component<HeaderProps> = () => {
-  const [getTempQ, setTempQ] = createSignal(getQ());
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams<SearchPageParams>();
+  const [getQ, setQ] = createSignal(searchParams.q ?? "");
+
+  const handleSearch = (e: SubmitEvent) => {
+    e.preventDefault();
+    const params = new URLSearchParams({ q: getQ() });
+    navigate(`/search?${params}`);
+  };
 
   return (
-    <header>
+    <header class="position-sticky top-0 z-1">
       <nav
         class="navbar navbar-expand-lg"
         style="background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);"
@@ -22,21 +31,15 @@ const Header: Component<HeaderProps> = () => {
             <span class="ms-2">{t.title()}</span>
           </a>
 
-          <form
-            class="ms-auto d-flex"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setQ(getTempQ());
-            }}
-          >
+          <form class="ms-auto d-flex" onSubmit={handleSearch}>
             <div class="input-group">
               <input
                 class="form-control"
                 type="search"
                 placeholder={t.searchPlaceholder()}
                 aria-label={t.search()}
-                value={getTempQ()}
-                onInput={(e) => setTempQ(e.currentTarget.value)}
+                value={getQ()}
+                onInput={(e) => setQ(e.currentTarget.value)}
               />
 
               <button

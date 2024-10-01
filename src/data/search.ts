@@ -3,7 +3,6 @@ import {
   type QueryKey,
   createQuery,
 } from "@tanstack/solid-query";
-import { createSignal } from "solid-js";
 import {
   type InferOutput,
   array,
@@ -71,8 +70,6 @@ export async function searchOEIS(q: string): Promise<OEISEntry[]> {
 
   return parse(array(OEISEntrySchema), data);
 }
-
-export const [getQ, setQ] = createSignal("id:A001011");
 
 export function getSearchOEISQueryKey(q: string): QueryKey {
   return ["oeis", "search", q];

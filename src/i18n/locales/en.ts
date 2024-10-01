@@ -8,7 +8,7 @@ const en = {
   loadingData: "Loading data...",
   error: "Error",
   createdDate: "Created date",
-  updatedDate: "Updated date",
+  modifiedDate: "Modified date",
 };
 
 export default en;
