@@ -38,12 +38,12 @@ const Header: Component<HeaderProps> = () => {
                 onInput={(e) => setTempQ(e.currentTarget.value)}
               />
 
-              {/* TODO: Tooltip */}
               <button
                 class="btn btn-primary"
                 type="submit"
                 data-bs-toggle="tooltip"
-                data-bs-title="Collaborate with your team"
+                data-bs-placement="bottom"
+                data-bs-title="Search"
               >
                 <TbSearch />
               </button>

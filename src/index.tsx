@@ -2,6 +2,9 @@
 import { render } from "solid-js/web";
 
 import App from "./App";
+import { initializeBootstrap } from "./helpers/bootstrap";
+
+initializeBootstrap();
 
 const root = document.getElementById("root");
 
