@@ -5,6 +5,7 @@ const en = {
   noSearchQuery: "No search query",
   startSearching: "Start searching to view OEIS entries...",
   searchResultFor: (q: string) => `Search result for "${q}"`,
+  recentAdditions: "Recent additions to OEIS",
   loadingData: "Loading data...",
   error: "Error",
   createdDate: "Created date",

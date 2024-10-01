@@ -2,6 +2,7 @@ import { Route, Router } from "@solidjs/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
 import type { Component } from "solid-js";
 
+import Layout from "./components/layout";
 import IndexPage from "./pages";
 import SearchPage from "./pages/search";
 
@@ -13,7 +14,7 @@ const App: Component = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
+      <Router root={Layout}>
         <Route path="/" component={IndexPage} />
         <Route path="/search" component={SearchPage} />
       </Router>

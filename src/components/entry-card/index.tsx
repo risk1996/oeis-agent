@@ -2,16 +2,16 @@ import { Icon } from "@iconify-icon/solid";
 import clsx from "clsx";
 import { type Component, For, Show } from "solid-js";
 
-import type { OEISEntry } from "../../data/search";
 import { t } from "../../i18n";
 import intl from "../../i18n/intl";
+import type { Entry } from "../../model/entry";
 
-export interface OEISEntryCardProps {
+export interface EntryCardProps {
   class?: string;
-  data: OEISEntry;
+  data: Entry;
 }
 
-const OEISEntryCard: Component<OEISEntryCardProps> = (props) => (
+const EntryCard: Component<EntryCardProps> = (props) => (
   <div class={clsx("card", props.class)}>
     <div class="card-body">
       <div class="d-flex justify-content-between">
@@ -77,4 +77,4 @@ const OEISEntryCard: Component<OEISEntryCardProps> = (props) => (
   </div>
 );
 
-export default OEISEntryCard;
+export default EntryCard;

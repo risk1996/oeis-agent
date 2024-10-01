@@ -1,7 +1,15 @@
 import type { Component } from "solid-js";
+import SearchResult from "../components/search-result";
+import { t } from "../i18n";
 
-import Layout from "../components/layout";
+const IndexPage: Component = () => {
+  return (
+    <>
+      <h4>{t.recentAdditions()}</h4>
 
-const IndexPage: Component = () => <Layout>{null}</Layout>;
+      <SearchResult q="keyword:new" />
+    </>
+  );
+};
 
 export default IndexPage;

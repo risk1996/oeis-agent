@@ -1,11 +1,9 @@
-import type { Component, JSX } from "solid-js";
+import type { RouteSectionProps } from "@solidjs/router";
+import type { Component } from "solid-js";
+
 import Header from "../header";
 
-export interface LayoutProps {
-  children: JSX.Element;
-}
-
-const Layout: Component<LayoutProps> = (props) => {
+const Layout: Component<RouteSectionProps> = (props) => {
   return (
     <>
       <Header />

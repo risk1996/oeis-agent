@@ -1,8 +1,8 @@
 import { type Params, useSearchParams } from "@solidjs/router";
-import type { Component } from "solid-js";
+import { type Component, Match, Switch } from "solid-js";
 
-import Layout from "../../components/layout";
 import SearchResult from "../../components/search-result";
+import { t } from "../../i18n";
 
 export interface SearchPageParams extends Params {
   q: string;
@@ -10,11 +10,20 @@ export interface SearchPageParams extends Params {
 
 const SearchPage: Component = () => {
   const [searchParams] = useSearchParams<SearchPageParams>();
+  const getQ = () => searchParams.q ?? "";
 
   return (
-    <Layout>
-      <SearchResult q={searchParams.q ?? ""} />
-    </Layout>
+    <Switch>
+      <Match when={getQ() === ""}>
+        <h4>{t.noSearchQuery()}</h4>
+        <p>{t.startSearching()}</p>
+      </Match>
+      <Match when={true}>
+        <h4>{t.searchResultFor(getQ())}</h4>
+
+        <SearchResult q={getQ()} />
+      </Match>
+    </Switch>
   );
 };
 
