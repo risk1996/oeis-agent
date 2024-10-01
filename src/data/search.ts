@@ -3,6 +3,7 @@ import {
   type QueryKey,
   createInfiniteQuery,
 } from "@tanstack/solid-query";
+import { sum } from "remeda";
 import {
   type InferInput,
   type InferOutput,
@@ -33,7 +34,8 @@ export async function search(
   const params = new URLSearchParams({ ...input, start, fmt: "json" });
   const response = await fetch(`https://oeis.org/search?${params}`);
   const data = await response.json();
-  return parse(array(EntrySchema), data);
+
+  return parse(nullable(array(EntrySchema), []), data);
 }
 
 export function getSearchQueryKey(input: SearchParameterOutput): QueryKey {
@@ -53,7 +55,12 @@ export function createSearchQuery(
     queryKey: getSearchQueryKey(input()),
     queryFn: async ({ pageParam }) => await search(input(), pageParam),
     initialPageParam: 0,
-    getNextPageParam: (_, pages) => pages.length,
+    getNextPageParam: (_, allPages, lastPage) => {
+      const itemCount = sum(allPages.map((page) => page.length));
+      const expectedCount = (lastPage + 1) * 10;
+
+      return itemCount < expectedCount ? null : lastPage + 1;
+    },
     select: (data) => data.pages.flat(),
     ...options,
     enabled: input().q !== "",

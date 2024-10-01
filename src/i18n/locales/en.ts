@@ -7,6 +7,8 @@ const en = {
   searchResultFor: (q: string) => `Search result for "${q}"`,
   recentAdditions: "Recent additions to OEIS",
   loadingData: "Loading data...",
+  noResults: "No results",
+  loadMore: "Load more",
   error: "Error",
   etAl: "et al.",
   createdDate: "Created date",

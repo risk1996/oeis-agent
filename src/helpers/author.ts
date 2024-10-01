@@ -5,6 +5,8 @@ export interface Author {
 }
 
 export function parseAuthors(input: string): Author[] {
+  if (!input) return [];
+
   const authors: Author[] = [];
 
   for (const str of input.split(",").map((v) => v.trim())) {

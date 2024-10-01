@@ -13,7 +13,7 @@ import {
 import { parseAuthors } from "../helpers/author";
 
 export const EntrySchema = object({
-  author: pipe(string(), transform(parseAuthors)),
+  author: pipe(optional(string(), ""), transform(parseAuthors)),
   comment: optional(array(string()), []),
   created: pipe(
     string(),
