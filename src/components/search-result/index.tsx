@@ -1,17 +1,19 @@
+import clsx from "clsx";
 import { type Component, For, Match, Show, Switch } from "solid-js";
 import { ValiError } from "valibot";
 
-import clsx from "clsx";
 import { createSearchQuery } from "../../data/search";
+import type Sort from "../../enums/sort";
 import { t } from "../../i18n";
 import EntryCard from "../entry-card";
 
 export interface SearchResultProps {
   q: string;
+  sort: Sort | null;
 }
 
 const SearchResult: Component<SearchResultProps> = (props) => {
-  const searchQuery = createSearchQuery(() => ({ q: props.q, sort: null }), {});
+  const searchQuery = createSearchQuery(() => props, {});
 
   return (
     <Switch>

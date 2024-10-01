@@ -1,7 +1,9 @@
 import { type Params, useSearchParams } from "@solidjs/router";
-import { type Component, Match, Switch } from "solid-js";
+import { type Component, Match, Switch, createSignal } from "solid-js";
 
 import SearchResult from "../../components/search-result";
+import SortSelect from "../../components/sort-select";
+import Sort from "../../enums/sort";
 import { t } from "../../i18n";
 
 export interface SearchPageParams extends Params {
@@ -12,6 +14,8 @@ const SearchPage: Component = () => {
   const [searchParams] = useSearchParams<SearchPageParams>();
   const getQ = () => searchParams.q ?? "";
 
+  const [sort, setSort] = createSignal(Sort.Relevance);
+
   return (
     <Switch>
       <Match when={getQ() === ""}>
@@ -19,9 +23,12 @@ const SearchPage: Component = () => {
         <p>{t.startSearching()}</p>
       </Match>
       <Match when={true}>
-        <h4>{t.searchResultFor(getQ())}</h4>
+        <div class="d-flex justify-content-between">
+          <h4>{t.searchResultFor(getQ())}</h4>
+          <SortSelect value={sort()} onChange={setSort} />
+        </div>
 
-        <SearchResult q={getQ()} />
+        <SearchResult q={getQ()} sort={sort()} />
       </Match>
     </Switch>
   );
