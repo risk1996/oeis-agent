@@ -18,7 +18,7 @@ const SearchResult: Component<SearchResultProps> = (props) => {
   return (
     <Switch>
       <Match when={searchQuery.isPending}>
-        <div class="text-center mt-2">
+        <div class="text-center py-4">
           <div
             class="spinner-border text-primary mt-3 mb-2"
             role="status"

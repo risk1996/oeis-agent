@@ -2,6 +2,7 @@ import Sort from "../../enums/sort";
 
 const en = {
   title: "OEIS Agent",
+  author: "William Darian",
 
   search: "Search",
   searchPlaceholder: "Search OEIS",
@@ -25,6 +26,10 @@ const en = {
     [Sort.Number]: "Number",
     [Sort.Modified]: "Modified date",
     [Sort.Created]: "Created date",
+  },
+
+  footer: {
+    madeBy: "Made with ❤️ by",
   },
 
   notFound: {
