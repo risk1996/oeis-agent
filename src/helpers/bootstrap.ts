@@ -1,5 +1,6 @@
 import * as bootstrap from "bootstrap";
 
+// TODO: Consider refactoring to SolidPrimitive's mutation observer
 export function initializeBootstrap() {
   const initializeTooltips = () => {
     const tooltips = document.querySelectorAll("[data-bs-toggle='tooltip']");

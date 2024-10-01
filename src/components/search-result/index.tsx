@@ -2,6 +2,7 @@ import { type Component, For, Match, Switch } from "solid-js";
 import { ValiError } from "valibot";
 
 import { createSearchOEISQuery, getQ } from "../../data/search";
+import { t } from "../../i18n";
 import OEISEntryCard from "../oeis-entry-card";
 
 export type SearchResultProps = Record<never, never>;
@@ -13,11 +14,11 @@ const SearchResult: Component<SearchResultProps> = () => {
     <main class="container-lg mt-3">
       <Switch>
         <Match when={getQ() === ""}>
-          <h4>No search query</h4>
-          <p>Start searching to view OEIS entries...</p>
+          <h4>{t.noSearchQuery()}</h4>
+          <p>{t.startSearching()}</p>
         </Match>
         <Match when={true}>
-          <h4>Search result for "{getQ()}"</h4>
+          <h4>{t.searchResultFor(getQ())}</h4>
 
           <Switch>
             <Match when={searchQuery.isPending}>
@@ -27,9 +28,10 @@ const SearchResult: Component<SearchResultProps> = () => {
                   role="status"
                   aria-hidden="true"
                 />
-                <p>Loading data...</p>
+                <p>{t.loadingData()}</p>
               </div>
             </Match>
+
             <Match when={searchQuery.isError}>
               <p>Error:</p>
               <pre>{searchQuery.error?.message}</pre>
@@ -37,6 +39,7 @@ const SearchResult: Component<SearchResultProps> = () => {
                 <pre>{JSON.stringify(searchQuery.error.issues)}</pre>
               ) : null}
             </Match>
+
             <Match when={searchQuery.isSuccess}>
               <div class="row">
                 <For each={searchQuery.data}>

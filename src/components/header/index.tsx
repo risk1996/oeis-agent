@@ -3,6 +3,7 @@ import { type Component, createSignal } from "solid-js";
 
 import Icon from "../../assets/icon.svg";
 import { getQ, setQ } from "../../data/search";
+import { t } from "../../i18n";
 
 export type HeaderProps = Record<never, never>;
 
@@ -18,7 +19,7 @@ const Header: Component<HeaderProps> = () => {
         <div class="container-lg">
           <a class="navbar-brand" href="/">
             <img src={Icon} alt="logo" width={20} height={20} />
-            <span class="ms-2">OEIS Agent</span>
+            <span class="ms-2">{t.title()}</span>
           </a>
 
           <form
@@ -32,8 +33,8 @@ const Header: Component<HeaderProps> = () => {
               <input
                 class="form-control"
                 type="search"
-                placeholder="Search OEIS"
-                aria-label="Search"
+                placeholder={t.searchPlaceholder()}
+                aria-label={t.search()}
                 value={getTempQ()}
                 onInput={(e) => setTempQ(e.currentTarget.value)}
               />
@@ -43,7 +44,7 @@ const Header: Component<HeaderProps> = () => {
                 type="submit"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
-                data-bs-title="Search"
+                data-bs-title={t.search()}
               >
                 <TbSearch />
               </button>

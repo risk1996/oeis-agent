@@ -1,2 +1,2 @@
- - [ ] i18n
  - [ ] Dark mode switch
+ - [ ] Search history

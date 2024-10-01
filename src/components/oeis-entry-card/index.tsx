@@ -40,9 +40,7 @@ const OEISEntryCard: Component<OEISEntryCardProps> = (props) => (
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
-        <For each={props.data.data}>
-          {(datum) => <code class="badge text-bg-primary me-1">{datum}</code>}
-        </For>
+        <pre class="text-wrap">{props.data.data.join(", ")}</pre>
       </li>
       <li class="list-group-item">
         {/* TODO: Comment */}
