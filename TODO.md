@@ -1,5 +1,4 @@
  - [ ] Dark mode switch
  - [ ] Search history
- - [ ] Recent
- - [ ] Sort
  - [ ] Search Highlight
+ - [ ] Settings
