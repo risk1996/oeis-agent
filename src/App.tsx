@@ -13,7 +13,7 @@ const App: Component = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Router root={Layout}>
+      <Router root={Layout} base={import.meta.env.BASE_URL}>
         <Route path="/" component={IndexPage} />
         <Route path="/search" component={SearchPage} />
         <Route path="*404" component={NotFoundPage} />

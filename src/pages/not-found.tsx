@@ -10,7 +10,7 @@ const NotFoundPage: Component = () => {
         <h2>{t.notFound.title()}</h2>
         <p>{t.notFound.message()}</p>
 
-        <A href="/" class="btn btn-link" role="button">
+        <A href="/" class="link-primary">
           {t.notFound.cta()}
         </A>
       </div>
