@@ -3,22 +3,29 @@ import Sort from "../../enums/sort";
 
 const en = {
   title: "OEIS Agent",
-  author: "William Darian",
+  creator: "William Darian",
 
-  search: "Search",
-  searchPlaceholder: "Search OEIS",
-  noSearchQuery: "No search query",
-  startSearching: "Start searching to view OEIS entries...",
-  searchResultFor: (q: string) => `Search result for "${q}"`,
-  recentAdditions: "Recent additions to OEIS",
-  loadingData: "Loading data...",
-  noResults: "No results",
-  loadMore: "Load more",
+  search: {
+    label: "Search",
+    placeholder: "Search OEIS",
+    noQuery: "No search query",
+    startMessage: "Start searching to view OEIS entries...",
+    resultMessage: (q: string) => `Search result for "${q}"`,
+    noResults: "No results",
+    loadingData: "Loading data...",
+    loadMore: "Load more",
+  },
+
   error: "Error",
-  etAl: "et al.",
 
-  createdDate: "Created date",
-  modifiedDate: "Modified date",
+  author: {
+    etAl: "et al.",
+  },
+
+  dates: {
+    created: "Created date",
+    modified: "Modified date",
+  },
 
   sort: {
     label: "Sort by",
@@ -71,6 +78,10 @@ const en = {
 
   footer: {
     madeBy: "Made with ❤️ by",
+  },
+
+  home: {
+    title: "Recent additions to OEIS",
   },
 
   notFound: {

@@ -10,7 +10,7 @@ const IndexPage: Component = () => {
   return (
     <>
       <div class="d-flex justify-content-between">
-        <h4>{t.recentAdditions()}</h4>
+        <h4>{t.home.title()}</h4>
         <SortSelect value={sort()} onChange={setSort} />
       </div>
 

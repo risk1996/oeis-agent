@@ -4,6 +4,7 @@ import {
   createInfiniteQuery,
 } from "@tanstack/solid-query";
 import { sum } from "remeda";
+import { createMemo } from "solid-js";
 import {
   type InferInput,
   type InferOutput,
@@ -15,7 +16,6 @@ import {
   string,
 } from "valibot";
 
-import { createMemo } from "solid-js";
 import Sort from "../enums/sort";
 import { type Entry, EntrySchema } from "../model/entry";
 

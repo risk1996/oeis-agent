@@ -19,12 +19,12 @@ const SearchPage: Component = () => {
   return (
     <Switch>
       <Match when={getQ() === ""}>
-        <h4>{t.noSearchQuery()}</h4>
-        <p>{t.startSearching()}</p>
+        <h4>{t.search.noQuery()}</h4>
+        <p>{t.search.startMessage()}</p>
       </Match>
       <Match when={true}>
         <div class="d-flex justify-content-between">
-          <h4>{t.searchResultFor(getQ())}</h4>
+          <h4>{t.search.resultMessage(getQ())}</h4>
           <SortSelect value={sort()} onChange={setSort} />
         </div>
 

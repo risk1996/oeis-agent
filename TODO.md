@@ -3,4 +3,6 @@
  - [ ] Compare page
  - [ ] Search history
  - [ ] Search Highlight
+ - [ ] Data graph
  - [ ] Settings
+ - [ ] SEO (Meta, Social Share)

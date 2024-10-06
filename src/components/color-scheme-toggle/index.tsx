@@ -11,11 +11,11 @@ export interface ColorSchemeToggleProps
 export type ColorScheme = "light" | "dark";
 
 function getDefaultColorScheme(): ColorScheme {
-  const prefersDarkScheme = window.matchMedia(
-    "(prefers-color-scheme: dark)",
+  const prefersLightScheme = window.matchMedia(
+    "(prefers-color-scheme: light)",
   ).matches;
 
-  return prefersDarkScheme ? "dark" : "light";
+  return prefersLightScheme ? "light" : "dark";
 }
 
 const ColorSchemeToggle: Component<ColorSchemeToggleProps> = ({

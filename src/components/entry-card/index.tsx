@@ -31,7 +31,7 @@ const EntryCard: Component<EntryCardProps> = ({
               <Show when={author()}>{(author) => <i>{author().name}</i>}</Show>
               <Show when={isManyAuthors()}>
                 {", "}
-                <i>{t.etAl()}</i>
+                <i>{t.author.etAl()}</i>
               </Show>
             </p>
           </div>
@@ -39,17 +39,17 @@ const EntryCard: Component<EntryCardProps> = ({
           <div>
             <div
               class="d-flex align-items-center"
-              {...tooltip({ title: t.createdDate(), placement: "bottom" })}
+              {...tooltip({ title: t.dates.created(), placement: "bottom" })}
             >
               <Icon icon="tabler:calendar-plus" class="me-1" />
-              <span>{intl().date.format(data.created)}</span>
+              <span>{intl().dateMedium.format(data.created)}</span>
             </div>
             <div
               class="d-flex align-items-center"
-              {...tooltip({ title: t.modifiedDate(), placement: "bottom" })}
+              {...tooltip({ title: t.dates.modified(), placement: "bottom" })}
             >
               <Icon icon="tabler:calendar-clock" class="me-1" />
-              <span>{intl().date.format(data.time)}</span>
+              <span>{intl().dateMedium.format(data.time)}</span>
             </div>
           </div>
         </div>

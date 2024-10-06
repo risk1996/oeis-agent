@@ -41,8 +41,8 @@ const Header: Component<HeaderProps> = () => {
                 <input
                   class="form-control"
                   type="search"
-                  placeholder={t.searchPlaceholder()}
-                  aria-label={t.search()}
+                  placeholder={t.search.placeholder()}
+                  aria-label={t.search.label()}
                   value={getQ()}
                   onInput={(e) => setQ(e.currentTarget.value)}
                 />
@@ -50,7 +50,8 @@ const Header: Component<HeaderProps> = () => {
                 <button
                   class="btn btn-primary"
                   type="submit"
-                  {...tooltip({ title: t.search(), placement: "bottom" })}
+                  {...tooltip({ title: t.search.label(), placement: "bottom" })}
+                  aria-label={t.search.label()}
                 >
                   <Icon
                     icon="tabler:search"

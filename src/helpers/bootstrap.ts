@@ -1,11 +1,11 @@
-import * as bootstrap from "bootstrap";
+import { Popover, Tooltip } from "bootstrap";
 
 function initializeTooltip() {
   const tooltips = document.querySelectorAll(`[data-bs-toggle='tooltip']`);
 
   for (const element of tooltips) {
     if (!element.getAttribute("data-bs-initialized")) {
-      new bootstrap.Tooltip(element);
+      new Tooltip(element);
       element.setAttribute("data-bs-initialized", "true");
     }
   }
@@ -16,7 +16,7 @@ function initializePopover() {
 
   for (const element of popovers) {
     if (!element.getAttribute("data-bs-initialized")) {
-      new bootstrap.Popover(element);
+      new Popover(element);
       element.setAttribute("data-bs-initialized", "true");
     }
   }

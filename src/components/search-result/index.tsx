@@ -24,7 +24,7 @@ const SearchResult: Component<SearchResultProps> = (props) => {
             role="status"
             aria-hidden="true"
           />
-          <p>{t.loadingData()}</p>
+          <p>{t.search.loadingData()}</p>
         </div>
       </Match>
 
@@ -38,7 +38,7 @@ const SearchResult: Component<SearchResultProps> = (props) => {
 
       <Match when={searchQuery.isSuccess}>
         <div class="row">
-          <For each={searchQuery.data} fallback={t.noResults()}>
+          <For each={searchQuery.data} fallback={t.search.noResults()}>
             {(entry) => (
               <div class="col-12 col-md-6 p-2 d-flex align-items-stretch">
                 <EntryCard class="w-100" data={entry} />
@@ -63,7 +63,7 @@ const SearchResult: Component<SearchResultProps> = (props) => {
                     aria-hidden="true"
                   />
                 </Show>
-                {t.loadMore()}
+                {t.search.loadMore()}
               </button>
             </div>
           </Show>
