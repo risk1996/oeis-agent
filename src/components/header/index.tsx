@@ -6,6 +6,7 @@ import Logo from "../../assets/logo.svg";
 import { tooltip } from "../../helpers/popper";
 import { t } from "../../i18n";
 import type { SearchPageParams } from "../../pages/search";
+import ColorSchemeToggle from "../color-scheme-toggle";
 
 export type HeaderProps = Record<never, never>;
 
@@ -32,26 +33,34 @@ const Header: Component<HeaderProps> = () => {
             <span class="ms-2">{t.title()}</span>
           </a>
 
-          <form class="ms-auto d-flex" onSubmit={handleSearch}>
-            <div class="input-group">
-              <input
-                class="form-control"
-                type="search"
-                placeholder={t.searchPlaceholder()}
-                aria-label={t.search()}
-                value={getQ()}
-                onInput={(e) => setQ(e.currentTarget.value)}
-              />
+          <div class="ms-auto d-flex">
+            <ColorSchemeToggle class="me-1" />
 
-              <button
-                class="btn btn-primary"
-                type="submit"
-                {...tooltip({ title: t.search(), placement: "bottom" })}
-              >
-                <Icon icon="tabler:search" class="align-middle" width="1rem" />
-              </button>
-            </div>
-          </form>
+            <form class="d-flex" onSubmit={handleSearch}>
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder={t.searchPlaceholder()}
+                  aria-label={t.search()}
+                  value={getQ()}
+                  onInput={(e) => setQ(e.currentTarget.value)}
+                />
+
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  {...tooltip({ title: t.search(), placement: "bottom" })}
+                >
+                  <Icon
+                    icon="tabler:search"
+                    class="align-middle"
+                    width="1rem"
+                  />
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </nav>
     </header>
