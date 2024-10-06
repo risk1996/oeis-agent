@@ -20,11 +20,24 @@ const en = {
 
   author: {
     etAl: "et al.",
+    by: "By",
   },
 
   dates: {
     created: "Created date",
     modified: "Modified date",
+  },
+
+  description: {
+    label: "Description",
+  },
+
+  sequence: {
+    label: "Sequence",
+  },
+
+  formula: {
+    label: "Formula",
   },
 
   sort: {

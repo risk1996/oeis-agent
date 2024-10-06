@@ -1,5 +1,4 @@
  - [ ] Code Highlight (highlight.js)
- - [ ] Detail page
  - [ ] Compare page
  - [ ] Search history
  - [ ] Search Highlight

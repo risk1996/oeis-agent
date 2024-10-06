@@ -8,7 +8,7 @@ const Layout: Component<RouteSectionProps> = (props) => (
   <>
     <Header />
     <div class="bg-body pt-3">
-      <main class="container-lg">{props.children}</main>
+      <main class="container-lg pb-4">{props.children}</main>
     </div>
     <Footer />
   </>

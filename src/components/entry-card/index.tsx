@@ -1,4 +1,5 @@
 import { Icon } from "@iconify-icon/solid";
+import { A } from "@solidjs/router";
 import clsx from "clsx";
 import { type Component, For, type JSX, Show } from "solid-js";
 
@@ -26,7 +27,10 @@ const EntryCard: Component<EntryCardProps> = ({
       <div class="card-body">
         <div class="d-flex justify-content-between">
           <div>
-            <h5 class="card-title">{data.number}</h5>
+            <A href={`/${data.number}`} class="link-primary">
+              <h5 class="card-title">{data.number}</h5>
+            </A>
+
             <p class="card-text">
               <Show when={author()}>{(author) => <i>{author().name}</i>}</Show>
               <Show when={isManyAuthors()}>

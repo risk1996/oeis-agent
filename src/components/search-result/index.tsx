@@ -1,11 +1,12 @@
 import clsx from "clsx";
 import { type Component, For, Match, Show, Switch } from "solid-js";
-import { ValiError } from "valibot";
 
 import { createSearchQuery } from "../../data/search";
 import type Sort from "../../enums/sort";
 import { t } from "../../i18n";
 import EntryCard from "../entry-card";
+import LoadingSection from "../loading-section";
+import SearchErrorSection from "../search-error-section";
 
 export interface SearchResultProps {
   q: string;
@@ -18,22 +19,11 @@ const SearchResult: Component<SearchResultProps> = (props) => {
   return (
     <Switch>
       <Match when={searchQuery.isPending}>
-        <div class="text-center py-4">
-          <div
-            class="spinner-border text-primary mt-3 mb-2"
-            role="status"
-            aria-hidden="true"
-          />
-          <p>{t.search.loadingData()}</p>
-        </div>
+        <LoadingSection class="py-4" />
       </Match>
 
       <Match when={searchQuery.isError}>
-        <p>{t.error()}:</p>
-        <pre>{searchQuery.error?.message}</pre>
-        {searchQuery.error instanceof ValiError ? (
-          <pre>{JSON.stringify(searchQuery.error.issues)}</pre>
-        ) : null}
+        <SearchErrorSection error={searchQuery.error} />
       </Match>
 
       <Match when={searchQuery.isSuccess}>

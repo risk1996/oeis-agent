@@ -1,7 +1,7 @@
 import { Icon } from "@iconify-icon/solid";
 import { type Component, createSignal } from "solid-js";
 
-import { useNavigate, useSearchParams } from "@solidjs/router";
+import { A, useNavigate, useSearchParams } from "@solidjs/router";
 import Logo from "../../assets/logo.svg";
 import { tooltip } from "../../helpers/popper";
 import { t } from "../../i18n";
@@ -28,10 +28,10 @@ const Header: Component<HeaderProps> = () => {
         style="background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);"
       >
         <div class="container-lg">
-          <a class="navbar-brand" href="/">
+          <A href="/" class="navbar-brand">
             <img src={Logo} alt="logo" width={20} height={20} />
             <span class="ms-2">{t.title()}</span>
-          </a>
+          </A>
 
           <div class="ms-auto d-flex">
             <ColorSchemeToggle class="me-1" />
