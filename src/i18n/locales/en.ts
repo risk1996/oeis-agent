@@ -66,6 +66,7 @@ const en = {
     [Keyword.Unknown]: "Little is known; an unsolved problem",
     [Keyword.WalkCounting]: "Counts walks (or self-avoiding paths)",
     [Keyword.WordBased]: "Depends on words for the sequence in some language",
+    unregistered: "Unregistered keyword",
   },
 
   footer: {

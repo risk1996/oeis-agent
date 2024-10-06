@@ -1,7 +1,6 @@
 import {
   type InferOutput,
   array,
-  enum_,
   isoTimestamp,
   number,
   object,
@@ -11,7 +10,6 @@ import {
   transform,
 } from "valibot";
 
-import Keyword from "../enums/keyword";
 import { parseAuthors } from "../helpers/author";
 
 export const EntrySchema = object({
@@ -32,7 +30,6 @@ export const EntrySchema = object({
   keyword: pipe(
     string(),
     transform((v) => v.split(",")),
-    array(enum_(Keyword)),
   ),
   link: optional(array(string()), []),
   maple: optional(array(string()), []),
