@@ -1,9 +1,14 @@
+import { undestructurePlugin } from "babel-plugin-solid-undestructure";
 import devtools from "solid-devtools/vite";
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 
 export default defineConfig({
-  plugins: [solid(), devtools({ autoname: true })],
+  plugins: [
+    ...undestructurePlugin("ts"),
+    solid(),
+    devtools({ autoname: true }),
+  ],
   server: {
     port: 3000,
   },

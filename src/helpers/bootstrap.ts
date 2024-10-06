@@ -1,28 +1,32 @@
 import * as bootstrap from "bootstrap";
 
-// TODO: Consider refactoring to SolidPrimitive's mutation observer
-export function initializeBootstrap() {
-  const initializeTooltips = () => {
-    const tooltips = document.querySelectorAll("[data-bs-toggle='tooltip']");
-    for (const element of tooltips) {
-      if (!element.getAttribute("data-bs-initialized")) {
-        new bootstrap.Tooltip(element);
-        element.setAttribute("data-bs-initialized", "true");
-      }
+function initializeTooltip() {
+  const tooltips = document.querySelectorAll(`[data-bs-toggle='tooltip']`);
+
+  for (const element of tooltips) {
+    if (!element.getAttribute("data-bs-initialized")) {
+      new bootstrap.Tooltip(element);
+      element.setAttribute("data-bs-initialized", "true");
     }
-  };
+  }
+}
 
-  initializeTooltips();
+function initializePopover() {
+  const popovers = document.querySelectorAll(`[data-bs-toggle='popover']`);
 
-  const observer = new MutationObserver((mutationsList) => {
-    for (const mutation of mutationsList)
-      if (mutation.type === "childList" || mutation.type === "attributes")
-        initializeTooltips();
-  });
+  for (const element of popovers) {
+    if (!element.getAttribute("data-bs-initialized")) {
+      new bootstrap.Popover(element);
+      element.setAttribute("data-bs-initialized", "true");
+    }
+  }
+}
 
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: false,
-  });
+export function observeBootstrapElement(mutations: MutationRecord[]) {
+  for (const mutation of mutations) {
+    if (mutation.type === "childList" || mutation.type === "attributes") {
+      initializeTooltip();
+      initializePopover();
+    }
+  }
 }

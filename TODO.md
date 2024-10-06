@@ -1,3 +1,6 @@
+ - [ ] Code Highlight (highlight.js)
+ - [ ] Detail page
+ - [ ] Compare page
  - [ ] Dark mode switch
  - [ ] Search history
  - [ ] Search Highlight

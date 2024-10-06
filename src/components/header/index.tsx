@@ -3,6 +3,7 @@ import { type Component, createSignal } from "solid-js";
 
 import { useNavigate, useSearchParams } from "@solidjs/router";
 import Logo from "../../assets/logo.svg";
+import { tooltip } from "../../helpers/popper";
 import { t } from "../../i18n";
 import type { SearchPageParams } from "../../pages/search";
 
@@ -45,9 +46,7 @@ const Header: Component<HeaderProps> = () => {
               <button
                 class="btn btn-primary"
                 type="submit"
-                data-bs-toggle="tooltip"
-                data-bs-placement="bottom"
-                data-bs-title={t.search()}
+                {...tooltip({ title: t.search(), placement: "bottom" })}
               >
                 <Icon icon="tabler:search" class="align-middle" width="1rem" />
               </button>

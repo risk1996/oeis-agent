@@ -1,5 +1,6 @@
 import { A } from "@solidjs/router";
 import type { Component } from "solid-js";
+
 import { t } from "../i18n";
 
 const NotFoundPage: Component = () => {

@@ -3,6 +3,7 @@
     "autoname",
     "biomejs",
     "clsx",
+    "eigensequence",
     "halfmoon",
     "iconify",
     "oeis",
@@ -11,6 +12,7 @@
     "solidjs",
     "tabler",
     "tanstack",
+    "undestructure",
     "valibot"
   ],
   "[html]": {

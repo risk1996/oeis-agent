@@ -2,12 +2,9 @@
 import { render } from "solid-js/web";
 
 import App from "./App";
-import { initializeBootstrap } from "./helpers/bootstrap";
 
 import "halfmoon/css/halfmoon.min.css";
 import "solid-devtools";
-
-initializeBootstrap();
 
 const root = document.getElementById("root");
 
