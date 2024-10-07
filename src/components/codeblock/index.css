@@ -1,0 +1,163 @@
+/*!
+  Themes: nnfx light & nnfx dark
+  Description: Themes inspired by Netscape Navigator/Firefox
+  Authors: (c) 2020-2021 Jim Mason <jmason@ibinx.com>
+  Maintainer: @RocketMan
+  License: https://creativecommons.org/licenses/by-sa/4.0  CC BY-SA 4.0
+  Updated: 2021-05-17
+
+  @version 1.1.0
+
+  Revised by William Darian at 2024-10-06
+*/
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+
+/* Common Styles */
+.hljs {
+  color: var(--hljs-color);
+}
+
+.language-xml .hljs-meta,
+.language-xml .hljs-meta-string {
+  font-weight: 700;
+  font-style: italic;
+  color: var(--hljs-xml-meta-color);
+}
+
+.hljs-comment,
+.hljs-quote {
+  font-style: italic;
+  color: var(--hljs-comment-color);
+}
+
+.hljs-built_in,
+.hljs-keyword,
+.hljs-name {
+  color: var(--hljs-keyword-color);
+}
+
+.hljs-attr,
+.hljs-name {
+  font-weight: 700;
+}
+
+.hljs-string {
+  font-weight: 400;
+  color: var(--hljs-string-color);
+}
+
+.hljs-code,
+.hljs-link,
+.hljs-meta .hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-string {
+  color: var(--hljs-code-color);
+}
+
+.hljs-bullet,
+.hljs-symbol,
+.hljs-template-variable,
+.hljs-title,
+.hljs-variable {
+  color: var(--hljs-bullet-color);
+}
+
+.hljs-class .hljs-title,
+.hljs-title.class_,
+.hljs-type {
+  font-weight: 700;
+  color: var(--hljs-class-title-color);
+}
+
+.hljs-attr,
+.hljs-function .hljs-title,
+.hljs-subst,
+.hljs-tag,
+.hljs-title.function_ {
+  color: var(--hljs-tag-title-color);
+}
+
+.hljs-formula {
+  background-color: var(--hljs-formula-background);
+  font-style: italic;
+}
+
+.hljs-addition {
+  background-color: var(--hljs-addition-background);
+}
+
+.hljs-deletion {
+  background-color: var(--hljs-deletion-background);
+}
+
+.hljs-meta {
+  color: var(--hljs-meta-color);
+}
+
+.hljs-section,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+  font-weight: 700;
+  color: var(--hljs-selector-color);
+}
+
+.hljs-selector-pseudo {
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-strong {
+  font-weight: 700;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+/* Light Theme Variables */
+html[data-bs-theme="light"] {
+  --hljs-color: #000;
+  --hljs-xml-meta-color: #48b;
+  --hljs-comment-color: #070;
+  --hljs-keyword-color: #808;
+  --hljs-string-color: #00f;
+  --hljs-code-color: #00f;
+  --hljs-bullet-color: #f40;
+  --hljs-class-title-color: #639;
+  --hljs-tag-title-color: #000;
+  --hljs-formula-background: #eee;
+  --hljs-addition-background: #beb;
+  --hljs-deletion-background: #fbb;
+  --hljs-meta-color: #269;
+  --hljs-selector-color: #48b;
+}
+
+/* Dark Theme Variables */
+html[data-bs-theme="dark"] {
+  --hljs-color: #fff;
+  --hljs-xml-meta-color: #69f;
+  --hljs-comment-color: #9c6;
+  --hljs-keyword-color: #a7a;
+  --hljs-string-color: #bce;
+  --hljs-code-color: #bce;
+  --hljs-bullet-color: #d40;
+  --hljs-class-title-color: #96c;
+  --hljs-tag-title-color: #fff;
+  --hljs-formula-background: #eee;
+  --hljs-addition-background: #797;
+  --hljs-deletion-background: #c99;
+  --hljs-meta-color: #69f;
+  --hljs-selector-color: #69f;
+}

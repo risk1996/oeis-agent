@@ -5,7 +5,10 @@
     "clsx",
     "eigensequence",
     "halfmoon",
+    "hljs",
     "iconify",
+    "mathjax",
+    "nnfx",
     "oeis",
     "popperjs",
     "remeda",
@@ -13,7 +16,8 @@
     "tabler",
     "tanstack",
     "undestructure",
-    "valibot"
+    "valibot",
+    "wolframmathematica"
   ],
   "[html]": {
     "editor.defaultFormatter": "biomejs.biome"
@@ -52,6 +56,6 @@
     "**/.factorypath": true,
     "**/.project": true,
     "**/.settings": true,
-    "**/node_modules": true
+    "**/node_modules": false
   }
 }

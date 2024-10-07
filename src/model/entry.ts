@@ -11,6 +11,7 @@ import {
 } from "valibot";
 
 import { parseAuthors } from "../helpers/author";
+import { parseProgram } from "../helpers/code";
 
 export const EntrySchema = object({
   author: pipe(optional(string(), ""), transform(parseAuthors)),
@@ -43,7 +44,7 @@ export const EntrySchema = object({
     string(),
     transform((v) => v.split(",").map(Number)),
   ),
-  program: optional(array(string()), []),
+  program: pipe(optional(array(string()), []), transform(parseProgram)),
   reference: optional(array(string()), []),
   references: number(),
   revision: number(),

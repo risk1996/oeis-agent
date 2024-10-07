@@ -1,3 +1,4 @@
+import CodeLanguage from "../../enums/code-language";
 import Keyword from "../../enums/keyword";
 import Sort from "../../enums/sort";
 
@@ -38,6 +39,14 @@ const en = {
 
   formula: {
     label: "Formula",
+  },
+
+  code: {
+    label: "Code",
+    [CodeLanguage.Mathematica]: "Mathematica",
+    [CodeLanguage.Maple]: "Maple",
+    [CodeLanguage.Python]: "Python",
+    [CodeLanguage.Haskell]: "Haskell",
   },
 
   sort: {

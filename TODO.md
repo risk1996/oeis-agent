@@ -1,4 +1,5 @@
  - [ ] Code Highlight (highlight.js)
+ - [ ] Formula (Mathjax)
  - [ ] Compare page
  - [ ] Search history
  - [ ] Search Highlight
