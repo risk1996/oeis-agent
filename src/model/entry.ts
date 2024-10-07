@@ -28,7 +28,10 @@ export const EntrySchema = pipe(
     ),
     example: optional(array(string()), []),
     formula: optional(array(string()), []),
-    id: optional(string(), ""),
+    id: pipe(
+      optional(string(), ""),
+      transform((v) => v.split(" ")),
+    ),
     keyword: pipe(
       string(),
       transform((v) => v.split(",")),
@@ -63,7 +66,7 @@ export const EntrySchema = pipe(
     crossReferences: entry.xref,
     examples: entry.example,
     formulas: entry.formula,
-    id: entry.id,
+    formerIds: entry.id,
     keywords: entry.keyword,
     links: entry.link,
     modified: entry.time,

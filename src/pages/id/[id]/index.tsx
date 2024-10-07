@@ -46,6 +46,19 @@ const DetailPage: Component = () => {
               <div class="d-flex justify-content-between">
                 <div>
                   <h4>{detail().number}</h4>
+                  <Show when={detail().formerIds}>
+                    <p>
+                      {`${t.id.former()}: `}
+                      <For each={detail().formerIds}>
+                        {(id, i) => (
+                          <>
+                            <Show when={i() > 0}>{", "}</Show>
+                            <b>{id}</b>
+                          </>
+                        )}
+                      </For>
+                    </p>
+                  </Show>
 
                   <ul class="list-unstyled">
                     <li>
@@ -106,6 +119,20 @@ const DetailPage: Component = () => {
                 {detail().sequence.join(", ")}
               </pre>
               <hr />
+
+              <Show when={detail().comments.length > 0}>
+                <h5>{t.comment.label()}</h5>
+                {/* TODO: Formatting */}
+                <pre textContent={detail().comments.join("\n")} />
+                <hr />
+              </Show>
+
+              <Show when={detail().examples.length > 0}>
+                <h5>{t.example.label()}</h5>
+                {/* TODO: Formatting */}
+                <pre textContent={detail().examples.join("\n")} />
+                <hr />
+              </Show>
 
               <Show when={(detail().formulas.length ?? 0) > 0}>
                 <div class="d-flex justify-content-between align-items-baseline">

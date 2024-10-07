@@ -22,6 +22,10 @@ const en = {
 
   error: "Error",
 
+  id: {
+    former: "Formerly",
+  },
+
   author: {
     etAl: "et al.",
     by: "By",
@@ -38,6 +42,14 @@ const en = {
 
   sequence: {
     label: "Sequence",
+  },
+
+  comment: {
+    label: "Comment",
+  },
+
+  example: {
+    label: "Example",
   },
 
   formula: {
