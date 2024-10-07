@@ -48,8 +48,8 @@ const Header: Component<HeaderProps> = () => {
                 />
 
                 <button
-                  class="btn btn-primary"
                   type="submit"
+                  class="btn btn-primary"
                   {...tooltip({ title: t.search.label(), placement: "bottom" })}
                   aria-label={t.search.label()}
                 >

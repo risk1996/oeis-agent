@@ -5,6 +5,10 @@ const en = {
   title: "OEIS Agent",
   creator: "William Darian",
 
+  actions: {
+    copy: "Copy",
+  },
+
   search: {
     label: "Search",
     placeholder: "Search OEIS",

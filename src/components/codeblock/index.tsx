@@ -5,6 +5,8 @@ import hljsMathematica from "highlight.js/lib/languages/mathematica";
 import hljsPython from "highlight.js/lib/languages/python";
 import { type Component, type JSX, Show } from "solid-js";
 
+import "highlightjs-line-numbers.js";
+
 import "./index.css";
 
 export interface CodeblockProps extends JSX.HTMLAttributes<HTMLPreElement> {
@@ -26,7 +28,7 @@ const Codeblock: Component<CodeblockProps> = ({
 }) => (
   <Show when={children} keyed>
     <pre
-      class={clsx("hljs p-2", cls)}
+      class={clsx("hljs p-2 m-0", cls)}
       {...props}
       ref={(ref) => {
         if (highlightClass)

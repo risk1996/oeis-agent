@@ -2,6 +2,7 @@ import { type Params, useParams } from "@solidjs/router";
 import { type Component, For, Match, Show, Switch } from "solid-js";
 
 import { Icon } from "@iconify-icon/solid";
+import CopyIconButton from "../../../components/copy-icon-button";
 import EntryCode from "../../../components/entry-code";
 import KeywordBadge from "../../../components/keyword-badge";
 import LoadingSection from "../../../components/loading-section";
@@ -87,16 +88,25 @@ const DetailPage: Component = () => {
                 </div>
               </div>
 
-              <h5>{t.description.label()}</h5>
+              <div class="d-flex justify-content-between align-items-baseline">
+                <h5>{t.description.label()}</h5>
+                <CopyIconButton content={detail().name} />
+              </div>
               <p class="card-text mt-3">{detail().name}</p>
               <hr />
 
-              <h5>{t.sequence.label()}</h5>
+              <div class="d-flex justify-content-between align-items-baseline">
+                <h5>{t.sequence.label()}</h5>
+                <CopyIconButton content={detail().sequence.join(", ")} />
+              </div>
               <pre class="text-wrap">{detail().sequence.join(", ")}</pre>
               <hr />
 
               <Show when={(detail().formulas.length ?? 0) > 0}>
-                <h5>{t.formula.label()}</h5>
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <h5>{t.formula.label()}</h5>
+                  <CopyIconButton content={detail().formulas.join("\n")} />
+                </div>
                 <pre textContent={detail().formulas.join("\n")} />
                 <hr />
               </Show>
@@ -107,6 +117,7 @@ const DetailPage: Component = () => {
                 <hr />
               </Show>
 
+              <h5>{t.keyword.label()}</h5>
               <span class="d-flex gap-2">
                 <For each={detail().keywords}>
                   {(k) => <KeywordBadge value={k} />}

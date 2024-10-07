@@ -7,6 +7,7 @@ import {
 } from "../../helpers/code";
 import type { Entry } from "../../model/entry";
 import Codeblock from "../codeblock";
+import CopyIconButton from "../copy-icon-button";
 import TabItem from "../tab-item";
 import Tabs from "../tabs";
 
@@ -58,9 +59,16 @@ const EntryCode: Component<EntryCodeProps> = ({ entry }) => {
         {(display) => (
           <For each={display().code}>
             {(code) => (
-              <Codeblock highlightClass={display().highlightClass}>
-                {code.join("\n")}
-              </Codeblock>
+              <div class="pb-2">
+                <Codeblock highlightClass={display().highlightClass}>
+                  {code.join("\n")}
+                </Codeblock>
+                <CopyIconButton
+                  class="d-block w-100"
+                  withText
+                  content={code.join("\n")}
+                />
+              </div>
             )}
           </For>
         )}
