@@ -9,10 +9,10 @@
     "iconify",
     "mathjax",
     "nnfx",
-    "nohighlight",
     "oeis",
     "popperjs",
     "remeda",
+    "shiki",
     "solidjs",
     "tabler",
     "tanstack",
@@ -57,6 +57,6 @@
     "**/.factorypath": true,
     "**/.project": true,
     "**/.settings": true,
-    "**/node_modules": false
+    "**/node_modules": true
   }
 }

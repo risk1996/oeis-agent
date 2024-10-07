@@ -22,10 +22,12 @@ const EntryCode: Component<EntryCodeProps> = ({ entry }) => {
     ),
   );
   const [getActiveLanguage, setActiveLanguage] = createSignal<string | null>(
-    allDisplays()[0]?.language ?? null,
+    allDisplays()[0]?.language.name ?? null,
   );
   const activeDisplay = createMemo(() =>
-    allDisplays().find((display) => display.language === getActiveLanguage()),
+    allDisplays().find(
+      (display) => display.language.name === getActiveLanguage(),
+    ),
   );
 
   return (
@@ -35,8 +37,8 @@ const EntryCode: Component<EntryCodeProps> = ({ entry }) => {
           {(display) => {
             return (
               <TabItem
-                active={getActiveLanguage() === display.language}
-                onClick={() => setActiveLanguage(display.language)}
+                active={getActiveLanguage() === display.language.name}
+                onClick={() => setActiveLanguage(display.language.name)}
               >
                 <Show when={display.icon}>
                   {(icon) => (
@@ -48,7 +50,7 @@ const EntryCode: Component<EntryCodeProps> = ({ entry }) => {
                   )}
                 </Show>
 
-                {display.language}
+                {display.language.name}
               </TabItem>
             );
           }}
@@ -60,7 +62,7 @@ const EntryCode: Component<EntryCodeProps> = ({ entry }) => {
           <For each={display().code}>
             {(code) => (
               <div class="pb-2">
-                <Codeblock highlightClass={display().highlightClass}>
+                <Codeblock language={display().language.highlight}>
                   {code.join("\n")}
                 </Codeblock>
                 <CopyIconButton

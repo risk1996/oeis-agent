@@ -1,3 +1,4 @@
+import type { BundledLanguage } from "shiki/langs";
 import type { Entry } from "../model/entry";
 
 export interface Program {
@@ -52,10 +53,12 @@ export function getAllEntryProgramLanguages(entry: Entry): string[] {
 }
 
 export interface ProgramDisplay {
-  language: string | null;
+  language: {
+    name: string | null;
+    highlight: BundledLanguage | "text";
+  };
   code: string[][];
   icon: string;
-  highlightClass: string | null;
 }
 
 export function getEntryProgramDisplay(
@@ -69,31 +72,27 @@ export function getEntryProgramDisplay(
   switch (language) {
     case "Mathematica":
       return {
-        language,
+        language: { name: language, highlight: "wolfram" },
         code,
         icon: "simple-icons:wolframmathematica",
-        highlightClass: "language-mathematica",
       };
     case "Python":
       return {
-        language,
+        language: { name: language, highlight: "python" },
         code,
         icon: "simple-icons:python",
-        highlightClass: "language-python",
       };
     case "Haskell":
       return {
-        language,
+        language: { name: language, highlight: "haskell" },
         code,
         icon: "simple-icons:haskell",
-        highlightClass: "language-haskell",
       };
     default:
       return {
-        language,
+        language: { name: language, highlight: "text" },
         code,
         icon: "tabler:file",
-        highlightClass: null,
       };
   }
 }
