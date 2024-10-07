@@ -1,5 +1,5 @@
 import { createMutationObserver } from "@solid-primitives/mutation-observer";
-import { Route, Router } from "@solidjs/router";
+import { HashRouter, Route } from "@solidjs/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
 import { SolidQueryDevtools } from "@tanstack/solid-query-devtools";
 import type { Component } from "solid-js";
@@ -22,12 +22,12 @@ const App: Component = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Router root={Layout} base={import.meta.env.BASE_URL}>
+      <HashRouter root={Layout}>
         <Route path="/" component={IndexPage} />
         <Route path="/search" component={SearchPage} />
         <Route path="/id/:id" component={DetailPage} />
         <Route path="*404" component={NotFoundPage} />
-      </Router>
+      </HashRouter>
 
       <SolidQueryDevtools />
     </QueryClientProvider>

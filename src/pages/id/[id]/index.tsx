@@ -1,7 +1,7 @@
+import { Icon } from "@iconify-icon/solid";
 import { type Params, useParams } from "@solidjs/router";
 import { type Component, For, Match, Show, Switch } from "solid-js";
 
-import { Icon } from "@iconify-icon/solid";
 import CopyIconButton from "../../../components/copy-icon-button";
 import EntryCode from "../../../components/entry-code";
 import KeywordBadge from "../../../components/keyword-badge";
