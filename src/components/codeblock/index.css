@@ -1,3 +1,11 @@
+/** Modifications by William Darian at 2024-10-7 */
+html[data-bs-theme="light"] .hljs {
+  --hljs-background: #0001;
+}
+html[data-bs-theme="dark"] .hljs {
+  --hljs-background: #0003;
+}
+
 /*!
   Themes: nnfx light & nnfx dark
   Description: Themes inspired by Netscape Navigator/Firefox
@@ -7,8 +15,6 @@
   Updated: 2021-05-17
 
   @version 1.1.0
-
-  Revised by William Darian at 2024-10-06
 */
 
 pre code.hljs {
@@ -23,6 +29,7 @@ code.hljs {
 
 /* Common Styles */
 .hljs {
+  background: var(--hljs-background);
   color: var(--hljs-color);
 }
 
@@ -128,6 +135,7 @@ code.hljs {
 
 /* Light Theme Variables */
 html[data-bs-theme="light"] {
+  --hljs-background: #fff;
   --hljs-color: #000;
   --hljs-xml-meta-color: #48b;
   --hljs-comment-color: #070;
@@ -146,6 +154,7 @@ html[data-bs-theme="light"] {
 
 /* Dark Theme Variables */
 html[data-bs-theme="dark"] {
+  --hljs-background: #333;
   --hljs-color: #fff;
   --hljs-xml-meta-color: #69f;
   --hljs-comment-color: #9c6;

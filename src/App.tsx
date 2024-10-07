@@ -7,7 +7,7 @@ import type { Component } from "solid-js";
 import Layout from "./components/layout";
 import { observeBootstrapElement } from "./helpers/bootstrap";
 import IndexPage from "./pages";
-import DetailPage from "./pages/[id]";
+import DetailPage from "./pages/id/[id]";
 import NotFoundPage from "./pages/not-found";
 import SearchPage from "./pages/search";
 
@@ -25,7 +25,7 @@ const App: Component = () => {
       <Router root={Layout} base={import.meta.env.BASE_URL}>
         <Route path="/" component={IndexPage} />
         <Route path="/search" component={SearchPage} />
-        <Route path="/:id" component={DetailPage} />
+        <Route path="/id/:id" component={DetailPage} />
         <Route path="*404" component={NotFoundPage} />
       </Router>
 

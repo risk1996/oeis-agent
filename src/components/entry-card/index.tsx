@@ -19,15 +19,15 @@ const EntryCard: Component<EntryCardProps> = ({
   data,
   ...props
 }) => {
-  const author = () => data.author[0];
-  const isManyAuthors = () => data.author.length > 1;
+  const author = () => data.authors[0];
+  const isManyAuthors = () => data.authors.length > 1;
 
   return (
     <div class={clsx("card", cls)} {...props}>
       <div class="card-body">
         <div class="d-flex justify-content-between">
           <div>
-            <A href={`/${data.number}`} class="link-primary">
+            <A href={`/id/${data.number}`} class="link-primary">
               <h5 class="card-title">{data.number}</h5>
             </A>
 
@@ -53,7 +53,7 @@ const EntryCard: Component<EntryCardProps> = ({
               {...tooltip({ title: t.dates.modified(), placement: "bottom" })}
             >
               <Icon icon="tabler:calendar-clock" class="me-1" />
-              <span>{intl().dateMedium.format(data.time)}</span>
+              <span>{intl().dateMedium.format(data.modified)}</span>
             </div>
           </div>
         </div>
@@ -61,16 +61,13 @@ const EntryCard: Component<EntryCardProps> = ({
       </div>
       <hr />
       <div class="card-body">
-        <pre class="text-wrap">{data.data.join(", ")}</pre>
+        <pre class="text-wrap">{data.sequence.join(", ")}</pre>
       </div>
       <hr />
       <div class="card-body">
         <span class="d-flex gap-2">
-          <For each={data.keyword}>{(k) => <KeywordBadge value={k} />}</For>
+          <For each={data.keywords}>{(k) => <KeywordBadge value={k} />}</For>
         </span>
-        {/* TODO: Mathematica modal */}
-        {/* TODO: Maple modal */}
-        {/* TODO: Program modal */}
       </div>
     </div>
   );

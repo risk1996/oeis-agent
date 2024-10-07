@@ -1,15 +1,15 @@
-import { Icon } from "@iconify-icon/solid";
 import { type Params, useParams } from "@solidjs/router";
 import { type Component, For, Match, Show, Switch } from "solid-js";
 
-import EntryCode from "../../components/entry-code";
-import KeywordBadge from "../../components/keyword-badge";
-import LoadingSection from "../../components/loading-section";
-import SearchErrorSection from "../../components/search-error-section";
-import { createSearchQuery } from "../../data/search";
-import { tooltip } from "../../helpers/popper";
-import { t } from "../../i18n";
-import intl from "../../i18n/intl";
+import { Icon } from "@iconify-icon/solid";
+import EntryCode from "../../../components/entry-code";
+import KeywordBadge from "../../../components/keyword-badge";
+import LoadingSection from "../../../components/loading-section";
+import SearchErrorSection from "../../../components/search-error-section";
+import { createSearchQuery } from "../../../data/search";
+import { tooltip } from "../../../helpers/popper";
+import { t } from "../../../i18n";
+import intl from "../../../i18n/intl";
 
 export interface DetailPageParams extends Params {
   id: string;

@@ -1,10 +1,10 @@
 import { Icon } from "@iconify-icon/solid";
 import { type Component, For, Show, createMemo, createSignal } from "solid-js";
 
-import CodeLanguage, { getCodeLanguageIcon } from "../../enums/code-language";
-import { getEntryCode, isEntryCodeExists } from "../../helpers/code";
-import { allEnumMembers } from "../../helpers/enum";
-import { t } from "../../i18n";
+import {
+  getAllEntryProgramLanguages,
+  getEntryProgramDisplay,
+} from "../../helpers/code";
 import type { Entry } from "../../model/entry";
 import Codeblock from "../codeblock";
 import TabItem from "../tab-item";
@@ -15,38 +15,29 @@ export interface EntryCodeProps {
 }
 
 const EntryCode: Component<EntryCodeProps> = ({ entry }) => {
-  const availableLanguages = createMemo(() =>
-    allEnumMembers(CodeLanguage).filter((l) => isEntryCodeExists(entry, l)),
-  );
-  const otherLanguages = createMemo(() =>
-    [
-      ...new Set(
-        entry.program
-          .map((p) => p.language)
-          .filter(
-            (p): p is string =>
-              typeof p === "string" && p !== "Python" && p !== "Haskell",
-          ),
-      ),
-    ].sort(),
+  const allDisplays = createMemo(() =>
+    getAllEntryProgramLanguages(entry).map((language) =>
+      getEntryProgramDisplay(entry, language),
+    ),
   );
   const [getActiveLanguage, setActiveLanguage] = createSignal<string | null>(
-    availableLanguages()[0] ?? otherLanguages()[0] ?? null,
+    allDisplays()[0]?.language ?? null,
+  );
+  const activeDisplay = createMemo(() =>
+    allDisplays().find((display) => display.language === getActiveLanguage()),
   );
 
   return (
     <Show when={getActiveLanguage() !== null}>
       <Tabs>
-        <For each={availableLanguages()}>
-          {(language) => {
-            const icon = getCodeLanguageIcon(language);
-
+        <For each={allDisplays()}>
+          {(display) => {
             return (
               <TabItem
-                active={getActiveLanguage() === language}
-                onClick={() => setActiveLanguage(language)}
+                active={getActiveLanguage() === display.language}
+                onClick={() => setActiveLanguage(display.language)}
               >
-                <Show when={icon}>
+                <Show when={display.icon}>
                   {(icon) => (
                     <Icon
                       icon={icon()}
@@ -56,30 +47,20 @@ const EntryCode: Component<EntryCodeProps> = ({ entry }) => {
                   )}
                 </Show>
 
-                {t.code[language]()}
+                {display.language}
               </TabItem>
             );
           }}
         </For>
-        <For each={otherLanguages()}>
-          {(language) => (
-            <TabItem
-              active={getActiveLanguage() === language}
-              onClick={() => setActiveLanguage(language)}
-            >
-              <Icon icon="tabler:file" class="align-middle me-1" width="1rem" />
-
-              {language}
-            </TabItem>
-          )}
-        </For>
       </Tabs>
 
-      <Show when={getActiveLanguage()}>
-        {(language) => (
-          <For each={getEntryCode(entry, language())}>
+      <Show when={activeDisplay()}>
+        {(display) => (
+          <For each={display().code}>
             {(code) => (
-              <Codeblock language={language()}>{code.join("\n")}</Codeblock>
+              <Codeblock highlightClass={display().highlightClass}>
+                {code.join("\n")}
+              </Codeblock>
             )}
           </For>
         )}
