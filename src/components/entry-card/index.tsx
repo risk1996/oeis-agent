@@ -64,7 +64,7 @@ const EntryCard: Component<EntryCardProps> = ({
       </div>
       <hr />
       <div class="card-body">
-        <pre class="text-wrap">{data.sequence.join(", ")}</pre>
+        <pre class="text-wrap text-break">{data.sequence.join(", ")}</pre>
       </div>
       <hr />
       <div class="card-body">

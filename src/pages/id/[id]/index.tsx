@@ -102,7 +102,9 @@ const DetailPage: Component = () => {
                 <h5>{t.sequence.label()}</h5>
                 <CopyIconButton content={detail().sequence.join(", ")} />
               </div>
-              <pre class="text-wrap">{detail().sequence.join(", ")}</pre>
+              <pre class="text-wrap text-break">
+                {detail().sequence.join(", ")}
+              </pre>
               <hr />
 
               <Show when={(detail().formulas.length ?? 0) > 0}>

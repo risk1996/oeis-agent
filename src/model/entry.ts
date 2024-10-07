@@ -24,7 +24,7 @@ export const EntrySchema = pipe(
     ),
     data: pipe(
       string(),
-      transform((v) => v.split(",").map(Number)),
+      transform((v) => v.split(",").map(BigInt)),
     ),
     example: optional(array(string()), []),
     formula: optional(array(string()), []),
