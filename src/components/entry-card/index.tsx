@@ -3,11 +3,14 @@ import { A } from "@solidjs/router";
 import clsx from "clsx";
 import { type Component, For, type JSX, Show } from "solid-js";
 
-import { tooltip } from "../../helpers/popper";
+import { useDirective } from "../../directives";
+import { tooltip } from "../../directives/popper";
 import { t } from "../../i18n";
 import intl from "../../i18n/intl";
 import type { Entry } from "../../model/entry";
 import KeywordBadge from "../keyword-badge";
+
+useDirective(tooltip);
 
 export interface EntryCardProps extends JSX.HTMLAttributes<HTMLDivElement> {
   class?: string;
@@ -43,14 +46,14 @@ const EntryCard: Component<EntryCardProps> = ({
           <div>
             <div
               class="d-flex align-items-center"
-              {...tooltip({ title: t.dates.created(), placement: "bottom" })}
+              use:tooltip={{ title: t.dates.created(), placement: "bottom" }}
             >
               <Icon icon="tabler:calendar-plus" class="me-1" />
               <span>{intl().dateMedium.format(data.created)}</span>
             </div>
             <div
               class="d-flex align-items-center"
-              {...tooltip({ title: t.dates.modified(), placement: "bottom" })}
+              use:tooltip={{ title: t.dates.modified(), placement: "bottom" }}
             >
               <Icon icon="tabler:calendar-clock" class="me-1" />
               <span>{intl().dateMedium.format(data.modified)}</span>

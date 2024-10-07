@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { type Component, For, Match, Show, Switch } from "solid-js";
 
+import { Icon } from "@iconify-icon/solid";
 import { createSearchQuery } from "../../data/search";
 import type Sort from "../../enums/sort";
 import { t } from "../../i18n";
@@ -28,7 +29,15 @@ const SearchResult: Component<SearchResultProps> = (props) => {
 
       <Match when={searchQuery.isSuccess}>
         <div class="row">
-          <For each={searchQuery.data} fallback={t.search.noResults()}>
+          <For
+            each={searchQuery.data}
+            fallback={
+              <div class="d-flex flex-column align-items-center py-4">
+                <Icon icon="tabler:circle-off" width="6rem" />
+                <p class="fs-5">{t.search.noResults()}</p>
+              </div>
+            }
+          >
             {(entry) => (
               <div class="col-12 col-md-6 p-2 d-flex align-items-stretch">
                 <EntryCard class="w-100" data={entry} />

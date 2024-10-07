@@ -10,8 +10,11 @@ import {
   createSignal,
 } from "solid-js";
 
-import { tooltip } from "../../helpers/popper";
+import { useDirective } from "../../directives";
+import { tooltip } from "../../directives/popper";
 import { t } from "../../i18n";
+
+useDirective(tooltip);
 
 export interface CopyIconButtonProps
   extends Omit<JSX.HTMLAttributes<HTMLButtonElement>, "onClick" | "type"> {
@@ -40,9 +43,9 @@ const CopyIconButton: Component<CopyIconButtonProps> = ({
     <button
       type="button"
       class={clsx("btn", getIsCopied() ? "btn-success" : "btn-dark", cls)}
-      {...tooltip({ title: t.actions.copy(), placement: "left" })}
       aria-label={t.actions.copy()}
       onClick={handleCopy}
+      use:tooltip={{ title: t.actions.copy(), placement: "left" }}
       {...props}
     >
       <Icon

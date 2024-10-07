@@ -1,12 +1,15 @@
 import { Icon } from "@iconify-icon/solid";
-import { type Component, createSignal } from "solid-js";
+import { type Component, createEffect, createSignal } from "solid-js";
 
 import { A, useNavigate, useSearchParams } from "@solidjs/router";
 import Logo from "../../assets/logo.svg";
-import { tooltip } from "../../helpers/popper";
+import { useDirective } from "../../directives";
+import { tooltip } from "../../directives/popper";
 import { t } from "../../i18n";
 import type { SearchPageParams } from "../../pages/search";
 import ColorSchemeToggle from "../color-scheme-toggle";
+
+useDirective(tooltip);
 
 export type HeaderProps = Record<never, never>;
 
@@ -14,6 +17,10 @@ const Header: Component<HeaderProps> = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams<SearchPageParams>();
   const [getQ, setQ] = createSignal(searchParams.q ?? "");
+
+  createEffect(() => {
+    setQ(searchParams.q ?? "");
+  });
 
   const handleSearch = (e: SubmitEvent) => {
     e.preventDefault();
@@ -50,8 +57,8 @@ const Header: Component<HeaderProps> = () => {
                 <button
                   type="submit"
                   class="btn btn-primary"
-                  {...tooltip({ title: t.search.label(), placement: "bottom" })}
                   aria-label={t.search.label()}
+                  use:tooltip={{ title: t.search.label(), placement: "bottom" }}
                 >
                   <Icon
                     icon="tabler:search"

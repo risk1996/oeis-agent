@@ -7,9 +7,12 @@ import KeywordBadge from "../../components/keyword-badge";
 import LoadingSection from "../../components/loading-section";
 import SearchErrorSection from "../../components/search-error-section";
 import { createSearchQuery } from "../../data/search";
-import { tooltip } from "../../helpers/popper";
+import { useDirective } from "../../directives";
+import { tooltip } from "../../directives/popper";
 import { t } from "../../i18n";
 import intl from "../../i18n/intl";
+
+useDirective(tooltip);
 
 export interface DetailPageParams extends Params {
   id: string;
@@ -66,20 +69,20 @@ const DetailPage: Component = () => {
                 <div>
                   <div
                     class="d-flex align-items-center"
-                    {...tooltip({
+                    use:tooltip={{
                       title: t.dates.created(),
                       placement: "bottom",
-                    })}
+                    }}
                   >
                     <Icon icon="tabler:calendar-plus" class="me-1" />
                     <span>{intl().dateMedium.format(detail().created)}</span>
                   </div>
                   <div
                     class="d-flex align-items-center"
-                    {...tooltip({
+                    use:tooltip={{
                       title: t.dates.modified(),
                       placement: "bottom",
-                    })}
+                    }}
                   >
                     <Icon icon="tabler:calendar-clock" class="me-1" />
                     <span>{intl().dateMedium.format(detail().modified)}</span>
